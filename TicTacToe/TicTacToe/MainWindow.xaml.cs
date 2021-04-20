@@ -15,21 +15,21 @@ namespace TicTacToe
         public MainWindow()
         {
             InitializeComponent();
-            mainMenu.newGame.Click += NewGame_Click;
-            mainMenu.loadGame.Click += LoadGame_Click;
-            mainMenu.exit.Click += Exit_Click;
+            mainMenu.NewGame += NewGame_Click;
+            mainMenu.LoadGame += LoadGame_Click;
+            mainMenu.Exit += Exit_Click;
 
-            board.gameMenu.back.Click += Back_Click;
+            board.Back += Back_Click;
             board.OWins += Board_OWins;
             board.XWins += Board_XWins;
         }
 
-        private void Exit_Click(object sender, RoutedEventArgs e)
+        private void Exit_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void LoadGame_Click(object sender, RoutedEventArgs e)
+        private void LoadGame_Click(object sender, EventArgs e)
         {
             OpenFileDialog dialog = new OpenFileDialog
             {
@@ -54,13 +54,13 @@ namespace TicTacToe
             MessageBox.Show("O won the match");
         }
 
-        private void Back_Click(object sender, RoutedEventArgs e)
+        private void Back_Click(object sender, EventArgs e)
         {
             gBoard.Visibility = Visibility.Collapsed;
             gMainMenu.Visibility = Visibility.Visible;
         }
 
-        private void NewGame_Click(object sender, RoutedEventArgs e)
+        private void NewGame_Click(object sender, EventArgs e)
         {
             gMainMenu.Visibility = Visibility.Collapsed;
             gBoard.Visibility = Visibility.Visible;

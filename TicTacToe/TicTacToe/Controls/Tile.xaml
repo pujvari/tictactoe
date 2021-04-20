@@ -8,7 +8,7 @@
              d:DesignHeight="200" d:DesignWidth="200">
     <Grid>
         <Border x:Name="Border" BorderThickness="3" BorderBrush="White" Margin="-2" Background="Transparent">
-            <Button x:Name ="Button" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="Transparent" Click="Click">
+            <Button x:Name ="Button" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="Transparent" Click="ClickTile">
                 <Image x:Name="Picture" HorizontalAlignment="Center" VerticalAlignment="Center"/>
              </Button>
         </Border>

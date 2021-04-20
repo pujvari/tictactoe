@@ -30,13 +30,14 @@ namespace TicTacToe.Controls
                 tile22
             };
 
-            gameMenu.basicX.Click += BasicX_Click;
-            gameMenu.basicO.Click += BasicO_Click;
-            gameMenu.save.Click += Save_Click;
-            gameMenu.reset.Click += Reset_Click;
+            gameMenu.XClick += BasicX_Click;
+            gameMenu.OClick += BasicO_Click;
+            gameMenu.Save += Save_Click;
+            gameMenu.Reset += Reset_Click;
+            gameMenu.Back += Back_Click;
 
             foreach (var item in Tiles)
-                item.Button.Click += Button_Click;
+                item.Click += Button_Click;
 
             BasicX_Click(null, null);
         }
@@ -45,6 +46,8 @@ namespace TicTacToe.Controls
 
         public event EventHandler XWins;
         public event EventHandler OWins;
+
+        public event EventHandler Back;
 
         public void Load(string filename)
         {
@@ -55,7 +58,7 @@ namespace TicTacToe.Controls
                 Tiles[i].Set(array[i]);
         }
 
-        private void Button_Click(object sender, System.Windows.RoutedEventArgs e)
+        private void Button_Click(object sender, EventArgs e)
         {
             var res = GetGameResult();
             switch (res)
@@ -108,29 +111,34 @@ namespace TicTacToe.Controls
             return 0;
         }
 
-        private void Reset_Click(object sender, System.Windows.RoutedEventArgs e)
+        private void Reset_Click(object sender, EventArgs e)
         {
             Tiles.ForEach(x => x.Clear());
         }
 
-        private void Save_Click(object sender, System.Windows.RoutedEventArgs e)
+        private void Save_Click(object sender, EventArgs e)
         {
             var a = Tiles.Select(x => x.Picture.Source == x.X ? 1 : x.Picture.Source == x.O ? 2 : 0).ToArray();
             File.WriteAllText($"{DateTime.Now.ToString("yyyy-MM-dd-hh-mm-ss")}.json", JsonSerializer.Serialize(a));
         }
 
-        private void BasicX_Click(object sender, System.Windows.RoutedEventArgs e)
+        private void BasicX_Click(object sender, EventArgs e)
         {
             Tiles.ForEach(x => x.IsXSelected = true);
             gameMenu.basicX.Background = Brushes.Yellow;
             gameMenu.basicO.Background = Brushes.Transparent;
         }
 
-        private void BasicO_Click(object sender, System.Windows.RoutedEventArgs e)
+        private void BasicO_Click(object sender, EventArgs e)
         {
             Tiles.ForEach(x => x.IsXSelected = false);
             gameMenu.basicX.Background = Brushes.Transparent;
             gameMenu.basicO.Background = Brushes.Yellow;
+        }
+
+        private void Back_Click(object sender, EventArgs e)
+        {
+            Back(null, null);
         }
     }
 }

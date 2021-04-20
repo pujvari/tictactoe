@@ -15,14 +15,14 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <local:MenuButton Grid.Column="0" x:Name="basicX">
+        <local:MenuButton Grid.Column="0" x:Name="basicX" Click="basicX_Click">
             <local:MenuImage Source="../Images/x.png"/>
         </local:MenuButton>
-        <local:MenuButton Grid.Column="1" x:Name="basicO">
+        <local:MenuButton Grid.Column="1" x:Name="basicO" Click="basicO_Click">
             <local:MenuImage Source="../Images/o.png"/>
         </local:MenuButton>
-        <local:MenuButton Grid.Column="2" x:Name="save" Content="Save Game"/>
-        <local:MenuButton Grid.Column="3" x:Name="reset" Content="Reset"/>
-        <local:MenuButton Grid.Column="4" x:Name="back" Content="Back"/>
+        <local:MenuButton Grid.Column="2" x:Name="save" Content="Save Game" Click="save_Click"/>
+        <local:MenuButton Grid.Column="3" x:Name="reset" Content="Reset" Click="reset_Click"/>
+        <local:MenuButton Grid.Column="4" x:Name="back" Content="Back" Click="back_Click"/>
     </Grid>
 </UserControl>

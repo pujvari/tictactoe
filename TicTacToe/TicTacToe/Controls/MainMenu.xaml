@@ -20,9 +20,9 @@
         </Grid.RowDefinitions>
 
         <local:MenuImage Grid.Row="0" x:Name="image" Source="../Images/tictactoe_white.png"/>
-        <local:MenuButton Grid.Row="1" x:Name="newGame" Content="New Game"/>
-        <local:MenuButton Grid.Row="2" x:Name="loadGame" Content="Load Game"/>
-        <local:MenuButton Grid.Row="3" x:Name="options" Content="Options"/>
-        <local:MenuButton Grid.Row="4" x:Name="exit" Content="Exit"/>
+        <local:MenuButton Grid.Row="1" x:Name="newGame" Content="New Game" Click="newGame_Click"/>
+        <local:MenuButton Grid.Row="2" x:Name="loadGame" Content="Load Game" Click="loadGame_Click"/>
+        <local:MenuButton Grid.Row="3" x:Name="options" Content="Options" Click="options_Click"/>
+        <local:MenuButton Grid.Row="4" x:Name="exit" Content="Exit" Click="exit_Click"/>
     </Grid>
 </UserControl>
